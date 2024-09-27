@@ -1,0 +1,23 @@
+databases:
+    - name: scooter_lines
+      databaseName: scooter_lines
+      user: scooter_lines
+      plan: free
+
+services:
+    - type: web
+      name: scooter_lines
+      runtime: ruby
+      plan: free
+      buildCommand: "./bin/render-build.sh"
+        # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+      startCommand: "bundle exec rails server"
+      envVars:
+          - key: DATABASE_URL
+            fromDatabase:
+                name: scooter_lines
+                property: connectionString
+          - key: RAILS_MASTER_KEY
+            sync: false
+          - key: WEB_CONCURRENCY
+            value: 2 # sensible default
