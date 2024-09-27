@@ -4,12 +4,14 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+.DS_Store
+
 # Ignore bundler config.
 /.bundle
 
-# Ignore all environment files (except templates).
-/.env*
-!/.env*.erb
+# Ignore RubyMine
+/.idea
+.rakeTasks
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -17,17 +19,83 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore pidfiles, but keep the directory.
+# Keep pids but not its content
+!/tmp/pids
 /tmp/pids/*
-!/tmp/pids/
-!/tmp/pids/.keep
+!/tmp/pids/.gitkeep
 
-# Ignore storage (uploaded files in development and any SQLite databases).
-/storage/*
-!/storage/.keep
-/tmp/storage/*
-!/tmp/storage/
-!/tmp/storage/.keep
+# Ignore Byebug command history file.
+.byebug_history
+
+# sunspot solr data
+/solr/*/data
+
+# ignore coverage reports
+/coverage/*
+/profiles/*
+yarn-error.log
+
+# Ignore development .env
+.env
+.env.production
+.env.development
+.env.local
+.env.*.local
+
+# Google Cloud
+mobiel-nl-staging-1-service-account.json
+mobiel-nl-staging-2-service-account.json
+mobiel-nl-production-service-account.json
+websend-bi-service-account.json
+google_application_credentials.json
+mobiel-nl-staging-*.json
+
+# Developer specific variables
+config/initializers/developer_vars.rb
+
+system_private
+contracts
+
+# Paperclip files
+/public/system
+dump.rdb
+/bootstrap
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+contracts/
+
+# Ignore documentation
+/doc/rdoc
+
+# Ignore rufo configuration
+.rufo
+
+# Ignore node modules
+/node_modules
+
+# Ignore envrc
+.envrc
+
+# Ignore downloaded rubocop config
+.rubocop-https---relaxed-ruby-style-rubocop-yml
+
+# Ignore Brewfile.lock
+Brewfile.lock.json
+
+
+# Ignore rspec status file
+spec/rspec-output.txt
+
+/storage/*
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+.vscode/
+
+# Ignore the combined icons file
+/app/assets/images/tabler_icons.svg
+
+# rubocop
+.rubocop-http*
