@@ -1,0 +1,2 @@
+class ScooterLine < ApplicationRecord
+end
