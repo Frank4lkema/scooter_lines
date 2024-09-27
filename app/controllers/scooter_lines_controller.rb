@@ -15,6 +15,13 @@ class ScooterLinesController < ApplicationController
     end
   end
 
+  def destroy
+    @line = ScooterLine.find(params[:id])
+    @line.destroy
+
+    head :no_content
+  end
+
   private
 
   def line_params

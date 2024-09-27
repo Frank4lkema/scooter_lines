@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :scooter_lines
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "scooter_lines#index"
 end
